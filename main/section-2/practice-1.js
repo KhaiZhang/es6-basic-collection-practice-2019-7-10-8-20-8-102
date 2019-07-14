@@ -1,5 +1,10 @@
 'use strict';
 
 module.exports = function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+  return collection.reduce( (returnValue , currentValue) => {
+    returnValue.find(value => value.key === currentValue)?
+    returnValue.find(value => value.key === currentValue).count++:
+    returnValue.push({key:currentValue,count:1});
+      return returnValue;
+  },[])
 }

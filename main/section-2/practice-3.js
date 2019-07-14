@@ -1,5 +1,13 @@
 'use strict';
 
 module.exports = function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+    return collection.reduce( (returnValue,currentValue) => {
+    currentValue = currentValue.length != 1 ? {name : currentValue.split(/\-|\:|\[|\]/)[0],
+    summary : parseInt(currentValue.split(/\-|\:|\[|\]/)[1])} : {name : currentValue,summary : 1};
+    returnValue.find(value => value.name === currentValue.name)?
+    returnValue.find(value => value.name === currentValue.name).summary+=currentValue.summary:
+    returnValue.push(currentValue);
+    return returnValue;
+},[]);
+
 }
